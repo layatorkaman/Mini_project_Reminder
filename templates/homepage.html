@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %} صفحه اول{% endblock %}
+{% block content %}
+
+    <h1 > خوش آمديد :</h1>
+    <ul style="align-content: center" >
+        <li> <a href="{% url 'todo:tasklist' %}"> ليست كارها</a> </li>
+        <li> <a href="{% url 'todo:category' %}"> دسته بندي </a> </li>
+        <li> <a href="{% url 'admin:index' %}">ادمين </a> </li>
+
+    </ul>
+    <button type="button" class="btn btn-success"><a href="{% url 'todo:task_new' %}">ايجاد كار جديد</a></button>
+
+
+
+{% endblock %}

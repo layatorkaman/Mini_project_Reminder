@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} كار جديد{% endblock %}
+{% block content %}
+    <h1>New post</h1>
+   <form action="" method="post">
+     {% csrf_token %}
+      {{ form | crispy}}
+    <input type="submit" value="Save">
+   </form>
+{% endblock content %}
+
+
+{##########}
+{#{% extends 'base.html' %}#}
+{#{% block content %}#}
+{#    <h1>كار جديد</h1>#}
+{#    <form method="POST">#}
+{#    {% csrf_token %}#}
+{#   كار:#}
+{#    <br>#}
+{#        <input type="text" name="title" required {% if form.title.value %} {% endif %}>#}
+{#    <br>#}
+{#    شرح:#}
+{#    <br>#}
+{#        <textarea  name="description" required ></textarea>#}
+{#    <br>#}
+{##}
+{##}
+{#    <input type="submit" value="ثبت">#}
+{#    </form>#}
+{##}
+{##}
+{#{% endblock %}#}

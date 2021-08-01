@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %} شرح كار {% endblock title %}
+{% block content %}
+    <h2>{{ task.title }}:
+        <p>{{ task.description }}</p>
+        <p>{{ task.pority }} -{{ task.expire_date }}</p>
+
+    </h2>
+{% endblock %}

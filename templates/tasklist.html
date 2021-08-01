@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load custom_tags %}
+
+{% block title %} ليست وظايف {% endblock %}
+{% block content %}
+    <h1>ليست كارها:</h1>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 40%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+<table>
+  <tr>
+    <th>كار</th>
+    <th>شرح</th>
+    <th>زمان</th>
+    <th>مهلت باقيمانده</th>
+  </tr>
+    {% for task in tasks %}
+        <tr>
+        <td>{{ task.title | capfirst }}:</td>
+        <td><a href="{{ task.get_absolute_url }}"> <p>{{ task.description }}</p></a></td>
+        <td>{{ task.expire_date.date }}</td>
+        <td>{% dif_time task.expire_date  %}</td>
+        </tr>
+
+    {% endfor %}
+</table>
+
+
+    <h1> كارهاي گذشته:</h1>
+    {% for x in exp_task %}
+        <a href="{{ x.get_absolute_url }}">
+            <h2>{{ x.title }}:{{ x.expire_date }}</h2>
+        </a>
+    {% endfor %}
+{%for task in tasks %}
+
+   {{ task.title }} :
+    {% dif_time task.expire_date  %}
+
+    <br>
+
+
+
+{% endfor %}
+{% endblock %}
+
+
+
+
+
