@@ -4,6 +4,7 @@
     <h2>{{ task.title }}:
         <p>{{ task.description }}</p>
         <p>{{ task.pority }} -{{ task.expire_date }}</p>
+        <p><a href="{% url 'todo:edittask' task.pk %}">+ ويرايش كار</a></p>
 
     </h2>
 {% endblock %}

@@ -1,24 +1,12 @@
-
 {% extends 'base.html' %}
+{% block title %} ليست دسته بندي {% endblock %}
 {% block content %}
-    <h3>دسته بندي جديد</h3>
-    <form method="POST">
-    {% csrf_token %}
-   گروه:
-    <br>
-        <input type="text" name="title" required >
-    <br>
+   <h3>گروه هايي كه هيچ كاري براي آنها ثبت نشده:</h3>
+    {% for cat in emp_cat %}
 
-    <input type="submit" value="ثبت">
-    </form>
+         <h5>{{ cat  }} </h5>
+    {% endfor %}
 
-
-########
-    <h3>گروه هايي كه هيچ كاري براي آنها ثبت نشده:</h3>
-{% for cat in emp_cat %}
-
-    <h5>{{ cat  }} </h5>
-{% endfor %}
 
        <h3>گروه هايي كه هيچ كاري براي آنها ثبت شده:</h3>
 {% for cat in full_cat %}

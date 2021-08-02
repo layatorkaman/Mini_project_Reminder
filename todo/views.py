@@ -3,9 +3,9 @@ from django.http import HttpResponse
 from django.utils.timesince import timeuntil
 
 from .models import Task, CategoryTask
-from django.views.generic import ListView, TemplateView, DetailView, CreateView
+from django.views.generic import ListView, TemplateView, DetailView, CreateView, UpdateView
 from .forms import TaskForm, CategoryTaskForm
-
+from django.urls import reverse
 
 # Create your views here.
 
@@ -14,6 +14,7 @@ class TaskListView(ListView):
     model = Task
     template_name = 'tasklist.html'
     context_object_name = 'tasks'
+
 
     def get_context_data(self, **kwargs):
         context = super(TaskListView, self).get_context_data(**kwargs)
@@ -84,4 +85,10 @@ def create_category(request):
     else:
         form = CategoryTaskForm()
 
-    return render(request, 'Category.html', {'form': form})
+    return render(request, 'CategoryCreate.html', {'form': form})
+
+
+class TaskUpdateView(UpdateView):
+    model = Task
+    template_name = 'edit_task.html'
+    fields = ['title', 'description', 'pority', 'category', 'expire_date']

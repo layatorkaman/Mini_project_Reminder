@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import TaskListView, IndexTemplateView, CategoriView, TaskDetailView, create_task, create_category
+from .views import TaskListView, IndexTemplateView, CategoriView, TaskDetailView, create_task, create_category, \
+ TaskUpdateView
 from django.views.generic import TemplateView
 
 app_name = "todo"
@@ -9,5 +10,6 @@ urlpatterns = [
     path('category/', CategoriView.as_view(), name='category'),
     path('newcategory/',create_category, name='new_category'),
     path('<slug:pk>/', TaskDetailView.as_view(), name='taskdetail'),
+    path('<int:pk>/edittask/',TaskUpdateView.as_view(),name='edittask'),
 
 ]

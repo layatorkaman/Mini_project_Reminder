@@ -22,7 +22,7 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 </style>
-
+<h2>ليست كارها:</h2>
 <table>
   <tr>
     <th>كار</th>
@@ -41,23 +41,23 @@ tr:nth-child(even) {
     {% endfor %}
 </table>
 
-
     <h1> كارهاي گذشته:</h1>
-    {% for x in exp_task %}
-        <a href="{{ x.get_absolute_url }}">
-            <h2>{{ x.title }}:{{ x.expire_date }}</h2>
-        </a>
+ <table>
+  <tr>
+    <th>كار</th>
+    <th>شرح</th>
+{#    <th> زمان</th>#}
+  </tr>
+    {% for task in exp_task %}
+        <tr>
+        <td>{{ task.title }}:</td>
+        <td><a href="{{ task.get_absolute_url }}"> <p>{{ task.description }}</p></a></td>
+        </tr>
+
     {% endfor %}
-{%for task in tasks %}
-
-   {{ task.title }} :
-    {% dif_time task.expire_date  %}
-
-    <br>
+  </table>
 
 
-
-{% endfor %}
 {% endblock %}
 
 

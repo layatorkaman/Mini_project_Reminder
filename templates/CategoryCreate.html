@@ -1,0 +1,15 @@
+
+{% extends 'base.html' %}
+{% block content %}
+    <h3>دسته بندي جديد</h3>
+    <form method="POST">
+    {% csrf_token %}
+   گروه:
+    <br>
+        <input type="text" name="title" required >
+    <br>
+
+    <input type="submit" value="ثبت">
+    </form>
+
+{% endblock %}
